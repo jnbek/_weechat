@@ -1,0 +1,25 @@
+#
+# jabber.conf -- weechat v0.3.7-dev
+#
+
+[look]
+debug = off
+
+[color]
+message_join = green
+message_quit = red
+
+[server]
+jn_gt.autoconnect = off
+jn_gt.autoreconnect = off
+jn_gt.away_priority = 0
+jn_gt.jid = "user@gmail.com"
+jn_gt.password = "the_pass"
+jn_gt.ping_interval = 0
+jn_gt.ping_timeout = 10
+jn_gt.port = 5223
+jn_gt.priority = 8
+jn_gt.private = on
+jn_gt.server = "talk.google.com"
+
+[jid_aliases]

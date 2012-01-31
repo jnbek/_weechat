@@ -1,0 +1,5 @@
+irc.conf
+jabber.conf
+logs
+weechat.log
+*fifo*
