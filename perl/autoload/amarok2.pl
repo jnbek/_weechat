@@ -138,6 +138,7 @@ sub cmd_all{
     my $title = amarok_get_info("title");
     my $sample_rate = amarok_get_info("audio-bitrate");
     my $mtime = amarok_get_info("mtime");
+    my $genre = amarok_get_info("genre");
 
      my $time = millisecs_to_time( `$cmd  org.kde.amarok /Player PositionGet` );
      $mtime = millisecs_to_time($mtime);			# max. time
@@ -149,6 +150,7 @@ sub cmd_all{
     $print_string =~ s/%T/$title/;
     $print_string =~ s/%Z/$time/;
     $print_string =~ s/%M/$mtime/;
+    $print_string =~ s/%G/$genre/;
     $print_string =~ s/%S/$sample_rate/;
 
     $print_string = "" if ($title eq "0" and $album eq "0" and $artist eq "0");
@@ -202,6 +204,11 @@ if ($anzahl_array == 2){				# does a second argument exists?
       $color = get_ext_color("title");
       $amarok_result = "\cC" . $color . $amarok_result . "\cC";
     }
+    if ($arg eq "genre"){
+      $amarok_result =~ s/genre: //g;
+      $color = get_ext_color("genre");
+      $amarok_result = "\cC" . $color . $amarok_result . "\cC";
+    }
     if ($arg eq "album"){
       $amarok_result =~ s/album: //g;
       $color = get_ext_color("album");
@@ -217,6 +224,11 @@ if ($anzahl_array == 2){				# does a second argument exists?
     if ($arg eq "title"){
       $amarok_result =~ s/title: //g;
       $color = get_color("title");
+      $amarok_result = $color . $amarok_result . weechat::color("reset");
+    }
+    if ($arg eq "genre"){
+      $amarok_result =~ s/genre: //g;
+      $color = get_color("genre");
       $amarok_result = $color . $amarok_result . weechat::color("reset");
     }
     if ($arg eq "album"){
