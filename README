@@ -1,1 +1,3 @@
-This is my personal configuration for Weechat, except the irc and jabber conf files, while contain passwords, simple sample files have been produces to faciliate quick set up of your own weechat confs for jabber and irc. Works on 0.3.6 and 0.3.7-dev.
+This is my personal configuration for Weechat, except the irc and jabber conf files, which contain passwords.
+Simple sample files have been produced to facilitate quick set up of your own weechat confs for jabber and irc.
+Works on 0.3.6 and 0.3.7-dev.
