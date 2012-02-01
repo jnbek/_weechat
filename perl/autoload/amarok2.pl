@@ -133,7 +133,7 @@ return weechat::WEECHAT_RC_OK;
 }
 # command "all" used. Create output
 sub cmd_all{
-    my $artist = amarok_get_info("artist");
+    my $artist = amarok_get_info("artist | grep -v albumartist");
     my $album = amarok_get_info("album");
     my $title = amarok_get_info("title");
     my $sample_rate = amarok_get_info("audio-bitrate");
@@ -192,7 +192,7 @@ sub amarok_get_info{
 # remove prefix
 if ($anzahl_array == 2){				# does a second argument exists?
   if ($array[1] eq "channel"){				# does the second argument is "channel"?
-    if ($arg eq "artist"){
+    if ($arg eq "artist | grep -v albumartist"){
       $amarok_result =~ s/artist: //g;
       $color = get_ext_color("artist");
       $amarok_result = "\cC" . $color . $amarok_result . "\cC";
@@ -209,7 +209,7 @@ if ($anzahl_array == 2){				# does a second argument exists?
     }
   }
 }else{
-    if ($arg eq "artist"){
+    if ($arg eq "artist | grep -v albumartist"){
       $amarok_result =~ s/artist: //g;
       $color = get_color("artist");
       $amarok_result = $color . $amarok_result . weechat::color("reset");
